@@ -1,0 +1,15 @@
+<h1>See all books</h1>
+
+<h2><%= link_to "Add a new Book", new_author_book_path(@author)%></h2>
+<% @author.books.each do |book| %>
+  <p>
+    <%= link_to "See more about #{book.title}", book_path(book) %>
+  </p>
+  <p>
+    <%= link_to "Edit #{book.title}", edit_book_path(book) %>
+  </p>
+  <p>
+    <%= link_to "Delete #{book.title}", book_path(book), method: :delete, data: {confirm: "Are you sure?"} %>
+  </p>
+
+<% end %>

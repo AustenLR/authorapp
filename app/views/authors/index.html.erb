@@ -1,0 +1,14 @@
+<h1>See all authors</h1>
+
+<h2><%= link_to "Add a new author", new_author_path%></h2>
+<% @authors.each do |author| %>
+  <p>
+    <%= link_to "See #{author.name}'s books", author_books_path(author) %>
+  </p>
+  <p>
+    <%= link_to "Edit #{author.name}", edit_author_path(author) %>
+  </p>
+  <p>
+    <%= link_to "Delete #{author.name}", author_path(author), method: :delete, data: {confirm: "are you sure?"} %>
+  </p>
+<% end %>
